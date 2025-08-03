@@ -43,7 +43,7 @@ function PaginationView() {
                 <PokemonCard
                     key={pokemon.name}
                     name={pokemon.name}
-                    spriteUrl={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${page * PAGE_SIZE + i + 1}.png`}
+                    spriteUrl={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${page * PAGE_SIZE + i + 1}.png`}
                     index={page * PAGE_SIZE + i}
                 />
                 ))}

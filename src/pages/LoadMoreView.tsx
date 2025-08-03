@@ -64,10 +64,10 @@ const LoadMoreView = () => {
                         const id = Number(pokemon.url.split('/').filter(Boolean).pop());
                         return (
                             <PokemonCard
-                            key={pokemon.name}
-                            name={pokemon.name}
-                            spriteUrl={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-                            index={i}
+                                key={pokemon.name}
+                                name={pokemon.name}
+                                spriteUrl={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
+                                index={i}
                             />
                         );
                         })}
