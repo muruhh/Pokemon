@@ -54,12 +54,12 @@ const LoadMoreView = () => {
     <section className='min-h-screen bg-green-50 w-full flex flex-col items-center py-10 px-4'>
         <Header />
         
-        <div className="flex-col items-center py-10 px-4">
+        <div className="flex-col items-center w-full max-w-7xl">
             {isLoading && <Loader />}
 
             {!isLoading && pokemonData.length > 0 && (
                 <>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
                         {pokemonData.map((pokemon, i) => {
                         const id = Number(pokemon.url.split('/').filter(Boolean).pop());
                         return (
