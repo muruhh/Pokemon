@@ -50,7 +50,7 @@ const PokemonDetail = () => {
           <div className="text-center">
             <div className='bg-gray-100 rounded-full p-5 w-60 h-60 flex items-center justify-center mx-auto'>
                 <img
-                src={data.sprites.other['official-artwork'].front_default}
+                src={data?.sprites.other?.['official-artwork']?.front_default}
                 alt={data.name}
                 className="mx-auto w-40 h-40"
                 />
