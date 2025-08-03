@@ -30,6 +30,12 @@ const PokemonDetail = () => {
   return (
     <section className="min-h-screen py-10 px-4 flex justify-center items-start">
       <div className="w-full max-w-3xl bg-white rounded-lg shadow overflow-hidden">
+        <Link
+            to="/pagination"
+            className="absolute left-50 top-4 text-sm bg-white text-gray-800 px-3 py-1 rounded shadow hover:bg-gray-100"
+          >
+            ← Back to List
+          </Link>
 
         <div className={`${gradientBg} text-white px-6 py-4 relative`}>
           
