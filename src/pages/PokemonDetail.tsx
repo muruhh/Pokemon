@@ -15,7 +15,7 @@ const PokemonDetail = () => {
 
   if (isLoading) return <LoaderDetail />;
 
-  if (isError) {
+  if (isError || !data) {
     return (
       <div className="text-center py-6">
         <p className="text-red-500 mb-2">Failed to load Pokémon details.</p>
