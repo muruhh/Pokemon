@@ -28,11 +28,11 @@ const PokemonDetail = () => {
   const gradientBg = 'bg-gradient-to-r from-purple-500 to-pink-500';
 
   return (
-    <section className="min-h-screen bg-pink-50 py-10 px-4 flex justify-center items-start">
+    <section className="min-h-screen bg-pink-50 py-20 px-4 flex justify-center items-center">
       <div className="w-full max-w-3xl bg-white rounded-lg shadow overflow-hidden">
         <Link
             to="/pagination"
-            className="absolute left-4 top-4 text-sm bg-white text-gray-800 px-3 py-1 rounded shadow hover:bg-gray-100 sm:left-50"
+            className="absolute left-4 top-5 text-sm bg-white text-gray-800 px-3 py-1 rounded shadow hover:bg-gray-100 sm:left-50"
           >
             ← Back to List
           </Link>
