@@ -9,6 +9,9 @@ const PAGE_SIZE = 20;
 const LoadMoreView = () => {
   const {
     data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
     isLoading,
   } = useInfiniteQuery<PokemonListResponse>({
     queryKey: ['pokemonInfinite'],
@@ -24,8 +27,8 @@ const LoadMoreView = () => {
 
   return (
     <section className="flex-col items-center py-10 px-4">
-        {isLoading && <Loader />}
-        
+      {isLoading && <Loader />}
+
       {!isLoading && pokemonData.length > 0 && (
         <>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -43,6 +46,18 @@ const LoadMoreView = () => {
               );
             })}
           </div>
+
+          {hasNextPage && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => fetchNextPage()}
+                disabled={isFetchingNextPage}
+                className="px-4 py-2 border rounded hover:bg-gray-100 disabled:opacity-50"
+              >
+                {isFetchingNextPage ? <Loader /> : 'Load More'}
+              </button>
+            </div>
+          )}
         </>
       )}
     </section>
