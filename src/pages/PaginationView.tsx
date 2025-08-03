@@ -13,7 +13,6 @@ function PaginationView() {
   const { data, isLoading, isError, refetch } = useQuery<PokemonListResponse>({
     queryKey: ['pokemonList', page],
     queryFn: () => fetchPokemonList(PAGE_SIZE, page * PAGE_SIZE),
-    keepPreviousData: true,
   });
 
   const handlePrev = () => setPage((prev) => Math.max(prev - 1, 0));
