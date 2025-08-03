@@ -1,6 +1,8 @@
 import { Routes, Route, Navigate, Link, useLocation} from 'react-router-dom';
 import PaginationView from './pages/PaginationView';
 import LoadMoreView from './pages/LoadMoreView';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import PokemonDetail from './pages/PokemonDetail';
 
 function App() {
   const location = useLocation();
@@ -28,20 +30,20 @@ function App() {
         >
           Page Controls
         </button>
-      </Link>
+          </Link>
 
-      <Link to="/load-more">
-        <button
-          className={`font-medium px-4 py-2 rounded shadow cursor-pointer transition ${
-            isInfiniteScroll
-              ? 'bg-black text-white hover:bg-gray-800'
-              : 'bg-white text-gray-800 hover:bg-gray-100'
-          }`}
-        >
-          Infinite Scroll
-        </button>
-      </Link>
-        </div>
+          <Link to="/load-more">
+            <button
+              className={`font-medium px-4 py-2 rounded shadow cursor-pointer transition ${
+                isInfiniteScroll
+                  ? 'bg-black text-white hover:bg-gray-800'
+                  : 'bg-white text-gray-800 hover:bg-gray-100'
+              }`}
+            >
+              Infinite Scroll
+            </button>
+          </Link>
+            </div>
       </div>
       </header>
 
@@ -49,6 +51,14 @@ function App() {
         <Route path="/" element={<Navigate to="/pagination" replace />} />
         <Route path="/pagination" element={<PaginationView />} />
         <Route path="/load-more" element={<LoadMoreView />} />
+        <Route
+          path="/pokemon/:name"
+          element={
+            <ErrorBoundary fallback={<p className="text-red-600">Failed to load Pokémon.</p>}>
+              <PokemonDetail />
+            </ErrorBoundary>
+          }
+        />
         <Route path="*" element={<p>404 Not Found</p>} />
       </Routes>
     </>
