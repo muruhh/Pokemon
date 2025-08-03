@@ -13,8 +13,6 @@ const PokemonDetail = () => {
     enabled: !!name,
   });
 
-  console.log(data);
-
   if (isLoading) return <Loader />;
 
   if (isError) {
