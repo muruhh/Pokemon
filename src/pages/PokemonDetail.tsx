@@ -13,6 +13,8 @@ const PokemonDetail = () => {
     enabled: !!name,
   });
 
+  console.log(data);
+
   if (isLoading) return <Loader />;
 
   if (isError) {
@@ -49,7 +51,7 @@ const PokemonDetail = () => {
         <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <div className="text-center">
             <img
-              src={data.sprites.front_default}
+              src={data.sprites.other['official-artwork'].front_default}
               alt={data.name}
               className="mx-auto w-40 h-40"
             />
