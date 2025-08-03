@@ -11,15 +11,12 @@ const PokemonCard = ({ name, spriteUrl, index }: Props) => {
 
   return (
     <div className="bg-white rounded shadow p-4 text-center">
-        <Link
-            to={`/pokemon/${name}`}
-            className="bg-white hover:shadow-lg border rounded-lg p-4 flex flex-col items-center text-center transition"
-            >
-                <div className="bg-gray-100">
-            <img src={spriteUrl} alt={name} className="mx-auto w-full object-contain" />
+        <Link to={`/pokemon/${name}`} >
+            <div className="bg-gray-100">
+                <img src={spriteUrl} alt={name} className="mx-auto h-32 object-contain" />
             </div>
-            <span className="capitalize font-medium text-lg">{name}</span>
-            <span className="text-sm text-gray-400">{paddedIndex}</span>
+            <h2 className="capitalize font-medium text-lg pt-3">{name}</h2>
+            <p className="text-sm text-gray-400">{paddedIndex}</p>
         </Link>
     </div>
   );
