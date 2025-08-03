@@ -1,69 +1,103 @@
-# React + TypeScript + Vite
+# 🧪 Pokémon Browser – React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive Pokémon browser built with **React**, **TypeScript**, and **Tailwind CSS**, leveraging **React Query** for data fetching and caching. The app allows users to browse Pokémon using both paginated and infinite scroll views, and view individual Pokémon details on dedicated pages.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 [https://pokemon-browser-iota.vercel.app](https://pokemon-browser-iota.vercel.app)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📸 Features
 
+### 1. Pokémon List Views
+
+- **Pagination View**  
+  Displays a grid of Pokémon cards with pagination controls (Previous / Next + page numbers).
+
+- **Load More View (Infinite Scroll)**  
+  Fetches additional Pokémon using a "Load More" mechanism with intersection observer support.
+
+### 2. Detail Page
+
+Clicking any Pokémon navigates to a dedicated route displaying:
+
+- ✅ Name  
+- ✅ Official sprite  
+- ✅ Height  
+- ✅ Weight  
+- ✅ Types  
+- ✅ Base experience  
+- ✅ Abilities  
+- ✅ Stats with progress bars
+
+### 3. State Management
+
+- 🔄 **Loading states** with placeholders
+- ❌ **Error handling** with retry buttons
+- ✅ **Type-safe API calls** via TypeScript interfaces
+
+### 4. Responsiveness
+
+- 💻 **Desktop**, 📱 **Tablet**, and 📲 **Mobile** support
+- Adaptive grid layout across breakpoints
+
+---
+
+## 🔧 Tech Stack
+
+- ⚛️ **React 18**
+- 🧑‍💻 **TypeScript**
+- 🎨 **Tailwind CSS**
+- 🔄 **@tanstack/react-query** for caching and async handling
+- ⚡ **Vite** for development and builds
+- ☁️ **Vercel** for deployment
+
+---
+
+## 📁 Folder Structure
 ```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+src/
+├── api/ # API functions (fetchPokemonList, fetchPokemonDetail)
+├── components/ # Reusable UI components (Header, Loader, Cards, etc.)
+├── pages/ # Page-level views (LoadMoreView, PaginationView, PokemonDetail)
+├── types/ # TypeScript interfaces (e.g., PokemonListResponse, PokemonDetail)
+└── App.tsx # Main routing setup
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📦 Install & Run Locally
+
+```bash
+git clone https://github.com/your-username/pokemon-browser.git
+cd pokemon-browser
+npm install
+npm run dev
+
+
+🚀 Deployment
+This project is deployed via Vercel:
+
+Live Link: https://pokemon-browser-iota.vercel.app
+
+
+- Completed Task Checklist
+- ✅ Pagination view
+- ✅ Infinite scroll view with "Load More"
+- ✅ Dedicated Pokémon detail page
+- ✅ Responsive design (mobile / tablet / desktop)
+- ✅ Clean loading and error states
+- ✅ Deployed on Vercel
+- ✅ Clean and modular codebase
+- ✅ Type-safe API integration
+
+
+---
+
+
+- Bonus Features
+- ✅ React Query used for all API operations
+- ✅ Error boundaries implemented
+- ✅ Placeholder-based loading indicators
