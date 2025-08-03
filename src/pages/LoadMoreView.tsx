@@ -75,10 +75,10 @@ const LoadMoreView = () => {
 
             {hasNextPage && (
                 <div ref={loaderRef} className="flex flex-col items-center mt-10">
-                    <p className="mt-2 text-sm text-gray-600 flex">
+                    <div className="mt-2 text-sm text-gray-600 flex">
                         <div className="w-5 h-5 mr-3 border-3 border-t-transparent border-green-500 rounded-full animate-spin"></div>
                         <p>Loading more Pokémon...</p>
-                    </p>
+                    </div>
                 </div>
             )}
 
