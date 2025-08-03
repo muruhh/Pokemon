@@ -18,6 +18,13 @@ function PaginationView() {
     });
 
     if (isLoading) return <Loader />;
+
+    if (isError) return (
+        <div className="text-center py-6">
+            <p className="text-red-500 mb-2">Failed to load Pokémon list.</p>
+            <button onClick={() => refetch()} className="text-blue-600 underline">Retry</button>
+        </div>
+    );
     
   return (
     <section className="flex-col items-center py-10 px-4">
