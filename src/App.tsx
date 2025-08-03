@@ -4,7 +4,7 @@ import LoadMoreView from './pages/LoadMoreView';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
+     <div className="max-w-7xl w-full">
       <Link to="/pagination">Pagination View</Link>
       <Link to="/load-more">Load More View</Link>
 
