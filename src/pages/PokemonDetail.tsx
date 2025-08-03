@@ -46,6 +46,44 @@ const PokemonDetail = () => {
           <p className="text-center text-lg mt-2">#{id}</p>
         </div>
 
+        <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <div className="text-center">
+            <img
+              src={data.sprites.front_default}
+              alt={data.name}
+              className="mx-auto w-40 h-40"
+            />
+
+            <div className="mt-4 flex flex-wrap justify-center gap-2">
+              {data.types.map(({ type }) => (
+                <span
+                  key={type.name}
+                  className="bg-red-500 text-white text-sm px-3 py-1 rounded-full capitalize"
+                >
+                  {type.name}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-6 grid grid-cols-2 gap-4 text-sm text-gray-700">
+              <div className="bg-gray-50 p-3 rounded shadow text-center">
+                <p className="text-sm text-gray-500 flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 3L3 5L14 16L16 14L5 3Z" /><path d="M6.5 4.5L7.5 5.5" /><path d="M9 7L10 8" /><path d="M11.5 9.5L12.5 10.5" /></svg>
+                    <span>Height</span>
+                </p>
+                <p className="font-bold">{(data.height / 10).toFixed(1)} m</p>
+              </div>
+              <div className="bg-gray-50 p-3 rounded shadow text-center">
+                <p className="text-sm text-gray-500 flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-500"><rect x="10" y="4" width="4" height="4" rx="1" /><path d="M5 10h14l-2 8H7l-2-8z" /></svg>
+                    <span>Weight</span>
+                </p>
+                <p className="font-bold">{(data.weight / 10).toFixed(1)} kg</p>
+              </div>
+            </div>
+          </div>
+          </div>
+
       </div>
     </section>
   );
