@@ -8,6 +8,7 @@ function App() {
   const isInfiniteScroll = location.pathname === '/load-more';
 
   return (
+    <>
      <header className="max-w-7xl w-full">
       <div className="text-center mb-10">
         <h1 className="text-4xl font-bold flex justify-center items-center gap-2">
@@ -42,6 +43,7 @@ function App() {
       </Link>
         </div>
       </div>
+      </header>
 
       <Routes>
         <Route path="/" element={<Navigate to="/pagination" replace />} />
@@ -49,7 +51,7 @@ function App() {
         <Route path="/load-more" element={<LoadMoreView />} />
         <Route path="*" element={<p>404 Not Found</p>} />
       </Routes>
-    </header>
+    </>
   );
 }
 
