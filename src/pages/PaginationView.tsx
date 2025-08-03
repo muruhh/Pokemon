@@ -40,12 +40,12 @@ function PaginationView() {
         <div className="flex-col items-center w-full max-w-7xl">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-10">
                 {data?.results.map((pokemon, i) => (
-                <PokemonCard
-                    key={pokemon.name}
-                    name={pokemon.name}
-                    spriteUrl={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${page * PAGE_SIZE + i + 1}.png`}
-                    index={page * PAGE_SIZE + i}
-                />
+                    <PokemonCard
+                        key={pokemon.name}
+                        name={pokemon.name}
+                        spriteUrl={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${Number(pokemon.url.split('/').filter(Boolean).pop())}.png`}
+                        index={page * PAGE_SIZE + i}
+                    />
                 ))}
             </div>
 
