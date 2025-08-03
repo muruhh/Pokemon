@@ -37,8 +37,7 @@ const LoadMoreView = () => {
 
 
 
-  const pages = data?.pages ?? [];
-  const pokemonData = pages.flatMap((page) => page.results);
+  const pokemonData = data?.pages?.flatMap((page) => page.results) ?? [];
 
   useEffect(() => {
     if (!loaderRef.current || !hasNextPage || isFetchingNextPage) return;
