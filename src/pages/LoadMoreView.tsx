@@ -51,53 +51,53 @@ const LoadMoreView = () => {
   }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   return (
-    <>
+    <section className='bg-green-50'>
         <Header />
         
-        <section className="flex-col items-center py-10 px-4">
-        {isLoading && <Loader />}
+        <div className="flex-col items-center py-10 px-4">
+            {isLoading && <Loader />}
 
-        {!isLoading && pokemonData.length > 0 && (
-            <>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {pokemonData.map((pokemon, i) => {
-                const id = Number(pokemon.url.split('/').filter(Boolean).pop());
-                return (
-                    <PokemonCard
-                    key={pokemon.name}
-                    name={pokemon.name}
-                    spriteUrl={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-                    index={i}
-                    />
-                );
-                })}
-            </div>
-
-            {hasNextPage && (
-                <div ref={loaderRef} className="flex flex-col items-center mt-10">
-                    <div className="mt-2 text-sm text-gray-600 flex">
-                        <div className="w-5 h-5 mr-3 border-3 border-t-transparent border-green-500 rounded-full animate-spin"></div>
-                        <p>Loading more Pokémon...</p>
+            {!isLoading && pokemonData.length > 0 && (
+                <>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                        {pokemonData.map((pokemon, i) => {
+                        const id = Number(pokemon.url.split('/').filter(Boolean).pop());
+                        return (
+                            <PokemonCard
+                            key={pokemon.name}
+                            name={pokemon.name}
+                            spriteUrl={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+                            index={i}
+                            />
+                        );
+                        })}
                     </div>
-                </div>
+
+                    {hasNextPage && (
+                        <div ref={loaderRef} className="flex flex-col items-center mt-10">
+                            <div className="mt-2 text-sm text-gray-600 flex">
+                                <div className="w-5 h-5 mr-3 border-3 border-t-transparent border-green-500 rounded-full animate-spin"></div>
+                                <p>Loading more Pokémon...</p>
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="text-center mt-4 text-sm text-gray-600">
+                        Showing {pokemonData.length} Pokémon
+                    </div>
+                </>
             )}
 
-            <div className="text-center mt-4 text-sm text-gray-600">
-                Showing {pokemonData.length} Pokémon
-            </div>
-            </>
-        )}
-
-        {isError && (
-            <div className="text-center py-6">
-            <p className="text-red-500 mb-2">Failed to load Pokémon.</p>
-            <button onClick={() => refetch()} className="text-blue-600 underline">
-                Retry
-            </button>
-            </div>
-        )}
-        </section>
-    </>
+            {isError && (
+                <div className="text-center py-6">
+                    <p className="text-red-500 mb-2">Failed to load Pokémon.</p>
+                    <button onClick={() => refetch()} className="text-blue-600 underline">
+                        Retry
+                    </button>
+                </div>
+            )}
+        </div>
+    </section>
   );
 };
 
