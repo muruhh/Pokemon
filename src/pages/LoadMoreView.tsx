@@ -37,7 +37,8 @@ const LoadMoreView = () => {
 
 
 
-  const pokemonData = data?.pages.flatMap((page) => page.results) ?? [];
+  const pages = data?.pages ?? [];
+  const pokemonData = pages.flatMap((page) => page.results);
 
   useEffect(() => {
     if (!loaderRef.current || !hasNextPage || isFetchingNextPage) return;
@@ -68,7 +69,7 @@ const LoadMoreView = () => {
             {!isLoading && pokemonData.length > 0 && (
                 <>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
-                        {pokemonData.map((pokemon, i) => {
+                        {pokemonData.map((pokemon: { name: string; url: string }, i: number) => {
                         const id = Number(pokemon.url.split('/').filter(Boolean).pop());
                         return (
                             <PokemonCard
