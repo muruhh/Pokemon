@@ -32,7 +32,7 @@ const PokemonDetail = () => {
       <div className="w-full max-w-3xl bg-white rounded-lg shadow overflow-hidden">
         <Link
             to="/pagination"
-            className="absolute left-50 top-4 text-sm bg-white text-gray-800 px-3 py-1 rounded shadow hover:bg-gray-100"
+            className="absolute left-4 top-4 text-sm bg-white text-gray-800 px-3 py-1 rounded shadow hover:bg-gray-100 sm:left-50"
           >
             ← Back to List
           </Link>
@@ -40,10 +40,10 @@ const PokemonDetail = () => {
         <div className={`${gradientBg} text-white px-6 py-4 relative`}>
           
           <h1 className="text-3xl font-bold text-center flex items-center justify-center gap-2">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bolt-gradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#fff"/> </linearGradient></defs><path d="M13 2L4 14H11L9 22L20 10H13L13 2Z" stroke="url(#bolt-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bolt-gradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#fff"/> </linearGradient></defs><path d="M13 2L4 14H11L9 22L20 10H13L13 2Z" stroke="url(#bolt-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
             {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
           </h1>
-          <p className="text-center text-sm">#{id}</p>
+          <p className="text-center text-lg mt-2">#{id}</p>
         </div>
 
       </div>
