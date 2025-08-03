@@ -51,7 +51,7 @@ const LoadMoreView = () => {
   }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   return (
-    <section className='bg-green-50'>
+    <section className='min-h-screen bg-green-50 w-full flex flex-col items-center py-10 px-4'>
         <Header />
         
         <div className="flex-col items-center py-10 px-4">
