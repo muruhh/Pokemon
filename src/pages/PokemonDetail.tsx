@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { fetchPokemonDetail } from '../api/pokemon';
+import Loader from '../components/Loader';
 import type { PokemonDetail } from '../types/pokemon';
 
 const PokemonDetail = () => {
@@ -11,7 +12,8 @@ const PokemonDetail = () => {
     queryFn: () => fetchPokemonDetail(name!),
     enabled: !!name,
   });
-   
+
+  if (isLoading) return <Loader />;
 
   return (
     <div className="max-w-md mx-auto text-center">
