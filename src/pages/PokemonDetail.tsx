@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { fetchPokemonDetail } from '../api/pokemon';
-import Loader from '../components/Loader';
+import LoaderDetail from '../components/LoaderDetail';
 import type { PokemonDetail as PokemonDetailType } from '../types/pokemon';
 
 const PokemonDetail = () => {
@@ -13,7 +13,7 @@ const PokemonDetail = () => {
     enabled: !!name,
   });
 
-  if (isLoading) return <Loader />;
+  if (isLoading) return <LoaderDetail />;
 
   if (isError) {
     return (
