@@ -14,6 +14,15 @@ const PokemonDetail = () => {
   });
 
   if (isLoading) return <Loader />;
+  
+  if (isError) {
+    return (
+      <div className="text-center py-6">
+        <p className="text-red-500 mb-2">Failed to load Pokémon details.</p>
+        <button onClick={() => refetch()} className="text-blue-600 underline">Retry</button>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-md mx-auto text-center">
