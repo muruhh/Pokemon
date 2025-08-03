@@ -19,16 +19,23 @@ const LoadMoreView = () => {
     isLoading,
     isError,
     refetch,
-  } = useInfiniteQuery<PokemonListResponse>({
+  } = useInfiniteQuery<
+    PokemonListResponse,        
+    Error,                      
+    PokemonListResponse,        
+    [string],                   
+    number                      
+  >({
     queryKey: ['pokemonInfinite'],
-    queryFn: ({ pageParam = 0 }: { pageParam?: number }) =>
-      fetchPokemonList(PAGE_SIZE, pageParam),
+    queryFn: ({ pageParam }) => fetchPokemonList(PAGE_SIZE, pageParam),
     initialPageParam: 0,
     getNextPageParam: (lastPage, allPages) => {
       const nextOffset = allPages.length * PAGE_SIZE;
       return nextOffset < lastPage.count ? nextOffset : undefined;
     },
   });
+
+
 
   const pokemonData = data?.pages.flatMap((page) => page.results) ?? [];
 
