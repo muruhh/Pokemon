@@ -13,6 +13,8 @@ const LoadMoreView = () => {
     hasNextPage,
     isFetchingNextPage,
     isLoading,
+    isError,
+    refetch,
   } = useInfiniteQuery<PokemonListResponse>({
     queryKey: ['pokemonInfinite'],
     queryFn: ({ pageParam = 0 }) => fetchPokemonList(PAGE_SIZE, pageParam),
@@ -59,6 +61,15 @@ const LoadMoreView = () => {
             </div>
           )}
         </>
+      )}
+
+      {isError && (
+        <div className="text-center py-6">
+          <p className="text-red-500 mb-2">Failed to load Pokémon.</p>
+          <button onClick={() => refetch()} className="text-blue-600 underline">
+            Retry
+          </button>
+        </div>
       )}
     </section>
   );
