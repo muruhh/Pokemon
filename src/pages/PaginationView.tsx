@@ -34,10 +34,10 @@ function PaginationView() {
     );
 
   return (
-    <>
+    <section className='min-h-screen bg-blue-100 w-full flex flex-col items-center py-10 px-4'>
         <Header />
 
-        <section className="flex-col items-center py-10 px-4">
+        <div className="flex-col items-center w-full max-w-7xl">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-10">
                 {data?.results.map((pokemon, i) => (
                 <PokemonCard
@@ -111,8 +111,8 @@ function PaginationView() {
                 Page {page + 1} of {totalPages} ({PAGE_SIZE} Pokémon shown)
                 </p>
             </div>
-        </section>
-    </>
+        </div>
+    </section>
   );
 }
 
