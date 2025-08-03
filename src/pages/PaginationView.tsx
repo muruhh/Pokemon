@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchPokemonList } from '../api/pokemon';
+import Loader from '../components/Loader';
 import PokemonCard from '../components/PokemonCard';
 import type { PokemonListResponse } from '../types/pokemon';
 
@@ -16,6 +17,7 @@ function PaginationView() {
         keepPreviousData: true,
     });
 
+    if (isLoading) return <Loader />;
     
   return (
     <section className="flex-col items-center py-10 px-4">
