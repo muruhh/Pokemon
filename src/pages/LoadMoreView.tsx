@@ -21,7 +21,8 @@ const LoadMoreView = () => {
     refetch,
   } = useInfiniteQuery<PokemonListResponse>({
     queryKey: ['pokemonInfinite'],
-    queryFn: ({ pageParam = 0 }) => fetchPokemonList(PAGE_SIZE, pageParam),
+    queryFn: ({ pageParam = 0 }: { pageParam?: number }) =>
+      fetchPokemonList(PAGE_SIZE, pageParam),
     initialPageParam: 0,
     getNextPageParam: (lastPage, allPages) => {
       const nextOffset = allPages.length * PAGE_SIZE;
